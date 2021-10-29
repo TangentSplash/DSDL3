@@ -2,7 +2,8 @@
 // Module to generate signal that will select a digit
 // and switch digits at ~1.2kHz
 
-module pulse_generator(input  clock,
+module pulse_generator #(parameter COUNT = 4095)
+		  (input  clock,
 	       input  reset,
 	       input  found_re,
 	       input  raw,
@@ -19,7 +20,7 @@ module pulse_generator(input  clock,
 	else	
 	  if (counter != 12'd0) counter <= counter - 12'd1;
 	  else
-	    if (found_re) counter <= 12'd4095;
+	    if (found_re) counter <= COUNT;
 	    else counter <= counter;
 
      end

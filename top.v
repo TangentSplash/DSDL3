@@ -30,5 +30,5 @@ module top(
     wire found_re;
     
     r_e_d risingedge(.clock(clock),.reset(reset),.raw(raw),.found_re(found_re));
-    pulse_generator pulse_generator(.clock(clock),.reset(reset),.raw(raw),.found_re(found_re),.clean(clean));
+    pulse_generator #(4095) pulse_generator(.clock(clock),.reset(reset),.raw(raw),.found_re(found_re),.clean(clean));
 endmodule
