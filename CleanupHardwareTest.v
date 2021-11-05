@@ -67,11 +67,11 @@ module CleanupHardwareTest(
 // Instantiate your display interface here.  Use count as the value to be displayed.
 // Keep all the dots turned off (connect the dots port to a constant 0000).
 // Use the 5 MHz clock signal, clk5, and the active high reset signal, reset.
-    
+    top top(.clock(clk5),.reset(reset),.value(count),.dots(0000),.segment(segment),.digit(digit) );
 
 // ===========================================================================
 // Instantiate your cleanup module here.  Connect btnU to the raw input.
 // Connect the clean output to the up signal.
 // Use the 5 MHz clock signal, clk5, and the active high reset signal, reset.
-     
+     btncln btncln(.clock(clk5),.reset(reset),.raw(btnU),.clean(up));
 endmodule
